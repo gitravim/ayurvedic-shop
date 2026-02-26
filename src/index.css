@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-parchment font-body text-sepia-dark;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .frame-card {
+    @apply bg-parchment border border-sepia/20 rounded-xl shadow-frame;
+    position: relative;
+  }
+  .frame-card::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 10px;
+    border: 1px solid rgba(112, 66, 20, 0.08);
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    @apply bg-sepia text-parchment font-body font-medium px-6 py-3 rounded-lg
+           hover:bg-sepia-dark transition-all duration-200 active:scale-95
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-forest {
+    @apply bg-forest text-white font-body font-medium px-6 py-3 rounded-lg
+           hover:bg-forest-dark transition-all duration-200 active:scale-95
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-amber {
+    @apply bg-amber text-sepia-dark font-body font-semibold px-6 py-3 rounded-lg
+           hover:bg-amber-dark transition-all duration-200 active:scale-95
+           shadow-sm hover:shadow-amber-glow;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl md:text-4xl text-sepia font-semibold;
+  }
+
+  .etched-divider {
+    @apply border-t border-sepia/20 my-8;
+    background: linear-gradient(90deg, transparent, rgba(112,66,20,0.2), transparent);
+    height: 1px;
+    border: none;
+  }
+}
+
+/* Amber glass shimmer effect on product cards */
+.product-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255, 191, 0, 0.25), 0 4px 16px rgba(112, 66, 20, 0.15);
+}
+
+/* Cart drawer animation */
+.cart-drawer {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cart-drawer-open {
+  transform: translateX(0);
+}
+.cart-drawer-closed {
+  transform: translateX(100%);
+}
+
+/* Botanical woodcut background pattern */
+.woodcut-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23704214' fill-opacity='0.04'%3E%3Cpath d='M40 10 C35 20, 25 25, 20 40 C25 35, 35 38, 40 50 C45 38, 55 35, 60 40 C55 25, 45 20, 40 10Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F5E6BE; }
+::-webkit-scrollbar-thumb { background: #9B6B35; border-radius: 3px; }
