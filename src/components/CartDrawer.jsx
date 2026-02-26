@@ -1,7 +1,9 @@
 import { X, ShoppingBag, Plus, Minus, Trash2, Tag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 export default function CartDrawer() {
+  const navigate = useNavigate();
   const {
     items, isOpen, setIsOpen, removeItem, updateQty,
     subtotal, bundleDiscount, total, totalItems, isBundleEligible,
@@ -136,7 +138,10 @@ export default function CartDrawer() {
                 <span>${total.toFixed(2)}</span>
               </div>
             </div>
-            <button className="btn-primary w-full text-center text-base py-3.5 mt-2">
+            <button
+              onClick={() => { setIsOpen(false); navigate('/checkout'); }}
+              className="btn-primary w-full text-center text-base py-3.5 mt-2"
+            >
               Proceed to Checkout
             </button>
             <p className="text-xs text-center text-sepia/40 font-body">

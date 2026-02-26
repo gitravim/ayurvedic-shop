@@ -8,6 +8,8 @@ import ShopPage from './pages/ShopPage';
 import ProductPage from './pages/ProductPage';
 import QuizPage from './pages/QuizPage';
 import SourceEthicsPage from './pages/SourceEthicsPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/source-ethics" element={<SourceEthicsPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/order-success" element={<OrderSuccessPage />} />
             </Routes>
           </div>
           <Footer />
